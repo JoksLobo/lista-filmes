@@ -23,6 +23,9 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
   background-color: var(--secundaria);
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 header {
@@ -79,6 +82,12 @@ header {
     background-color: var(--button-focus);
     color: var(--preto);
   }
+}
+
+main {
+  text-align: center;
+  padding: 5rem;
+  flex-grow: 1;
 }
 
 @media (max-width: 830px) {
