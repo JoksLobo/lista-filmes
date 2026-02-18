@@ -58,6 +58,8 @@ header {
     font-size: 1.6rem;
     transition: all 0.3s ease-in-out;
     outline: none;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 }
 
@@ -76,5 +78,20 @@ header {
   &:hover {
     background-color: var(--button-focus);
     color: var(--preto);
+  }
+}
+
+@media (max-width: 830px) {
+  header {
+    flex-direction: column;
+  }
+}
+@media (max-width: 650px) {
+  header {
+    gap: 1rem;
+  }
+  .search-container {
+    flex-direction: column;
+    justify-content: center;
   }
 }
