@@ -1,0 +1,38 @@
+:root {
+  --primaria: #ccd5aeff;
+  --primaria-claro: #e9edc9ff;
+  --secundaria: #faedcdff;
+  --secundaria-claro: #fefae0ff;
+  --button: #d4a373ff;
+  --button-focus: rgb(192, 148, 103);
+  --preto: #000;
+  --branco: #fff;
+}
+
+#modal-overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  align-items: center;
+  justify-content: center;
+  /* visibility: hidden; */
+}
+
+#modal-background {
+  width: 100%;
+  height: 100%;
+  background: var(--primaria-claro);
+  position: absolute;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+#modal-container {
+  z-index: 1;
+  background: var(--secundaria-claro);
+  padding: 1rem 3rem;
+  border-radius: 10px;
+}
