@@ -11,9 +11,12 @@ async function searchButtonClickHandler() {
 
     const responde = await fetch(url);
     const data = await responde.json();
+    if (data.Error) {
+      throw new Error("Filme não encontrado!");
+    }
     console.log(data);
   } catch (error) {
-    alert(error);
+    notie.alert({ type: "error", text: error.message, time: 2 });
   }
 }
 
