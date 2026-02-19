@@ -5,8 +5,6 @@ const searchYear = document.getElementById("ano");
 const key = "66508f0";
 async function searchButtonClickHandler() {
   try {
-    overlay.classList.add("open");
-
     let url = `http://www.omdbapi.com/?apikey=${key}&t=${movieNameParameterGenerator()}&y=${movieYearParameterGenerator()}`;
 
     const responde = await fetch(url);
@@ -14,6 +12,8 @@ async function searchButtonClickHandler() {
     if (data.Error) {
       throw new Error("Filme não encontrado!");
     }
+    createModal(data);
+    overlay.classList.add("open");
     console.log(data);
   } catch (error) {
     notie.alert({ type: "error", text: error.message, time: 2 });
