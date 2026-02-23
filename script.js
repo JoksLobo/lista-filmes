@@ -45,6 +45,13 @@ function addToList(movieObject) {
   movieList.push(movieObject);
 }
 
+function isMovieAlreadyInList(id) {
+  function doesThisIdBelongToTheMovie(movieObject) {
+    return movieObject.imdbID === id;
+  }
+  return Boolean(movieList.find(doesThisIdBelongToTheMovie));
+}
+
 function updadeUi(movieObject) {
   movieListContainer.innerHTML += `<article>
           <img
