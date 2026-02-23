@@ -3,6 +3,10 @@ const overlay = document.getElementById("modal-overlay");
 const searchName = document.getElementById("nome");
 const searchYear = document.getElementById("ano");
 const key = "66508f0";
+const movieListContainer = document.getElementById("movie-list");
+
+let movieList = [];
+
 async function searchButtonClickHandler() {
   try {
     let url = `http://www.omdbapi.com/?apikey=${key}&t=${movieNameParameterGenerator()}&y=${movieYearParameterGenerator()}`;
@@ -35,6 +39,20 @@ function movieYearParameterGenerator() {
     throw new Error("Insira um ano válido");
   }
   return searchYear.value;
+}
+
+function addToList(movieObject) {
+  movieList.push(movieObject);
+}
+
+function updadeUi(movieObject) {
+  movieListContainer.innerHTML += `<article>
+          <img
+            src="${movieObject.Poster}"
+            alt="Poster de ${movieObject.Title}"
+          />
+          <button id="remove-btn"><i class="bi bi-trash"></i> Remover</button>
+        </article>`;
 }
 
 searchButton.addEventListener("click", searchButtonClickHandler);
