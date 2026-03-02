@@ -5,7 +5,7 @@ const searchYear = document.getElementById("ano");
 const key = "66508f0";
 const movieListContainer = document.getElementById("movie-list");
 
-let movieList = [];
+let movieList = JSON.parse(localStorage.getItem("movieList")) ?? [];
 
 async function searchButtonClickHandler() {
   try {
@@ -65,6 +65,15 @@ function updadeUi(movieObject) {
 function removeMovieFromList(id) {
   movieList = movieList.filter((movie) => movie.imdbID !== id);
   document.getElementById(`movie-card${id}`).remove();
+  updateLocalStorage();
+}
+
+function updateLocalStorage() {
+  localStorage.setItem("movieList", JSON.stringify(movieList));
+}
+
+for (const movieInfo of movieList) {
+  updadeUi(movieInfo);
 }
 
 searchButton.addEventListener("click", searchButtonClickHandler);

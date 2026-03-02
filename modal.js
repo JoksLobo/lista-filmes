@@ -18,6 +18,7 @@ function addCurrentMovieToList() {
   }
   addToList(currentMovie);
   updadeUi(currentMovie);
+  updateLocalStorage();
   closeModal();
 }
 
