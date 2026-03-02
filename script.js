@@ -63,9 +63,17 @@ function updadeUi(movieObject) {
 }
 
 function removeMovieFromList(id) {
-  movieList = movieList.filter((movie) => movie.imdbID !== id);
-  document.getElementById(`movie-card${id}`).remove();
-  updateLocalStorage();
+  notie.confirm({
+    text: "Deseja remover o filme de sua lista?",
+    submitText: "Sim",
+    cancelText: "Não",
+    position: "top",
+    submitCallback: function remove() {
+      movieList = movieList.filter((movie) => movie.imdbID !== id);
+      document.getElementById(`movie-card${id}`).remove();
+      updateLocalStorage();
+    },
+  });
 }
 
 function updateLocalStorage() {
